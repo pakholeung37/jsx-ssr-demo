@@ -72,9 +72,7 @@ export async function render(jsxElement: JSX.Element): Promise<string> {
   }
 
   if (typeof jsxElement.tag === "function") {
-    console.log(jsxElement.tag);
     const jsxElementTag = await jsxElement.tag.call(this, jsxElement.props);
-    console.log(jsxElementTag);
     return await render(jsxElementTag);
   }
 
