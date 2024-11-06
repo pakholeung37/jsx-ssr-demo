@@ -24,7 +24,7 @@ const VOID_TAGS = new Set([
  * @param {JSX.Element} jsxElement - The JSX element to render.
  * @return {Promise<string>} The string representation of the rendered JSX element.
  */
-export async function jsxToString(jsxElement: JSX.Element): Promise<string> {
+export async function render(jsxElement: JSX.Element): Promise<string> {
   if (jsxElement === null) {
     return "";
   }
@@ -60,7 +60,7 @@ export async function jsxToString(jsxElement: JSX.Element): Promise<string> {
 
     const children: string[] = [];
     for (const child of element.children) {
-      const str = await jsxToString(child);
+      const str = await render(child);
       if (str.length > 0) {
         children.push(str);
       }
@@ -75,7 +75,7 @@ export async function jsxToString(jsxElement: JSX.Element): Promise<string> {
     console.log(jsxElement.tag);
     const jsxElementTag = await jsxElement.tag.call(this, jsxElement.props);
     console.log(jsxElementTag);
-    return await jsxToString(jsxElementTag);
+    return await render(jsxElementTag);
   }
 
   return "";

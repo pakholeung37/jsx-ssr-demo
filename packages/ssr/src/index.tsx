@@ -1,8 +1,8 @@
 export async function App() {
-  const result = await new Promise((r) => {
+  const result = await new Promise((resolve) => {
     setTimeout(() => {
-      r("hello" + Date.now());
-    }, 500);
+      resolve("hello" + Date.now());
+    }, 5000);
   });
   return (
     <div>

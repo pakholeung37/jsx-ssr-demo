@@ -1,11 +1,11 @@
 import { serve } from "bun";
-import { jsxToString } from "my-jsx";
+import { render } from "my-jsx";
 import { App } from "./index";
 
 serve({
   port: 3002,
   async fetch(req) {
-    const body = await jsxToString(await App());
+    const body = await render(await App());
     return new Response(
       `
      <!DOCTYPE html>
