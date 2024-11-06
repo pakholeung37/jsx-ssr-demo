@@ -1,0 +1,24 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Bun Server",
+      "type": "pwa-node",
+      "request": "launch",
+      "program": "src/server.ts", // 你的 Bun 服务器文件路径
+      "runtimeExecutable": "bun", // 指定使用 Bun 运行时
+      "args": [],
+      "cwd": "${workspaceFolder}/packages/ssr",
+      "internalConsoleOptions": "openOnSessionStart",
+      "sourceMaps": true,
+      "resolveSourceMapLocations": [
+        "${workspaceFolder}/**",
+        "!**/node_modules/**"
+      ],
+      "outFiles": ["${workspaceFolder}/**/*.js"]
+    }
+  ]
+}
